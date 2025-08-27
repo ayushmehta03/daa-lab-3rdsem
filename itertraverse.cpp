@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <chrono>   
 using namespace std;
+using namespace std::chrono;
 
 struct Node {
     int data;
@@ -52,13 +54,18 @@ vector<vector<int>> levelOrder(Node* root, vector<vector<int>>& sol) {
 int main() {
     Node* root = NULL;
     vector<int> values = {50, 30, 20, 40, 70, 60, 80};
-
     for (int val : values) {
         root = insert(root, val);
     }
 
     vector<vector<int>> sol;
+
+    auto start = high_resolution_clock::now();
+
     levelOrder(root, sol);
+
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
 
     for (auto level : sol) {
         for (auto val : level) {
@@ -66,4 +73,6 @@ int main() {
         }
         cout << endl;
     }
+
+    cout << "\nExecution time: " << duration.count() << " microseconds" << endl;
 }

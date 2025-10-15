@@ -74,11 +74,13 @@ int main(){
 
     // edges vector with negative value
     vector<vector<int>>edges={
-        {1,3,2},
-        {4,3,-1},
-        {2,4,1},
-        {1,2,1},
-        {0,1,5}
+        {3,2,6},
+        {5,3,1},
+        {0,1,5},
+        {1,5,-3},
+        {1,2,-2},
+        {3,4,-2},
+        {2,4,3}
     };
 
     // soruce node

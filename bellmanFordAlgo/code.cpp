@@ -16,7 +16,7 @@ using namespace std;
 
     vector<int> bellamnFord(vector<vector<int>>edges,int src,int V){
 
-        // distance vector for stroing 
+        // distance vector for storing the min distance according to the algorithm
         vector<int>distance(V,1e8);
 
         // mark the soruce as 0
@@ -74,13 +74,13 @@ int main(){
 
     // edges vector with negative value
     vector<vector<int>>edges={
-        {3,2,6},
-        {5,3,1},
         {0,1,5},
-        {1,5,-3},
         {1,2,-2},
-        {3,4,-2},
-        {2,4,3}
+        {1,5,-3},
+        {2,4,3},
+        {3,2,5},
+        {5,3,1},
+        {3,4,-2}
     };
 
     // soruce node
@@ -88,17 +88,17 @@ int main(){
     int src=0;
 
     // no of vertices / nodes
-    int V=5;
+    int V=6;
 
     // call the function passing edges source node and no of vertices
 
     vector<int>ans=bellamnFord(edges,src,V);
 
-    
+    // if it returns -1 it means tehre is negative cycle 
     if(ans[0]==-1){
         cout<<"not possible there is negative cycle";
     }
-
+    // otherwiase showcase the elemnt of vector
     else{
         for(auto it:ans){
             cout<<" "<<it;
